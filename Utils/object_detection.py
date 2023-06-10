@@ -170,6 +170,8 @@ def save_image_annotated(img_rgb, file_name, output, model_traffic_lights=None):
 
     cv2.imwrite(output_file, cv2.cvtColor(img_rgb, cv2.COLOR_RGB2BGR))
 
+    return output_file
+
 
 def center(box, coord_type):
     """
@@ -209,7 +211,7 @@ def perform_object_detection(model, file_name, save_annotated=False, model_traff
          "x2": int(box[3] * img_rgb.shape[1])} for box in output['detection_boxes']]
 
     if save_annotated:
-        save_image_annotated(img_rgb, file_name, output, model_traffic_lights)
+        file_name = save_image_annotated(img_rgb, file_name, output, model_traffic_lights)
 
     return img_rgb, output, file_name
 
