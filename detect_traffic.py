@@ -17,9 +17,9 @@ model_ssd = object_detection.load_ssd_coco()
 model_traffic_lights_nn = keras.models.load_model("traffic.h5")
 
 # Go through all image files, and detect the traffic light color.
-for file in files:
-    (img, out, file_name) = object_detection.perform_object_detection(
-        model_ssd, file, save_annotated=True, model_traffic_lights=model_traffic_lights_nn)
+# for file in files:
+#     (img, out, file_name) = object_detection.perform_object_detection(
+#         model_ssd, file, save_annotated=True, model_traffic_lights=model_traffic_lights_nn)
 
 def detectTraffic(file):
     (img, out, file_name) = object_detection.perform_object_detection(model_ssd, file, save_annotated=True, model_traffic_lights=model_traffic_lights_nn)
